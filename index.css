@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    background: #1C1C1C;
+    color: white;
+    font-family: 'Karla', sans-serif;
+}
+
+.main {
+    width: 550px;
+    height: 550px;
+    background: #1F2937;
+    margin: 64px auto;
+    padding: 50px;
+}
+
+button {
+    border: none;
+    background: #BD4337;
+    font-family: 'Karla', sans-serif;
+    padding: 5px 10px;
+    color: white;
+    margin: 30px 0;
+    border-radius: 10px;
+}
+
+button:hover, input:hover, h3 {
+    cursor: pointer
+}
+
+.red {
+    color: #BD4337;
+}
+
+#sliderContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+#sliderValue {
+    color: #BD4337;
+}
+
+
+#toggleSettings {
+    margin: 5px 0;
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-color: #BD4337;
+    border-color: #BD4337;
+}
+
+#generatedPasswords {
+    display: flex;
+    justify-content: space-around;
+}
+
+#passwordOne, #passwordTwo {
+    background: #273549;
+    width: 200px;
+    text-align: center;
+    padding: 5px;
+    color: #BD4337;
+    border-radius: 10px;
+    height: 20px;
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.custom-checkbox input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #1F2937; 
+    border: 2px solid #BD4337; 
+    border-radius: 5px;
+    margin-right: 5px; 
+}
+
+.custom-checkbox input:checked {
+    background-color: #BD4337; 
+    border-color: #BD4337; 
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      background-color: #1F2937;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: #13bba4;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 20px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: #434343;
+    }
+
+}
+/** For firefox */
+input[type="range"]::-moz-range-progress {
+  background-color: #BD4337; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: white;
+}
+/* For edge */
+input[type="range"]::-ms-fill-lower {
+  background-color: #43e5f7; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: #9a905d;
+}
