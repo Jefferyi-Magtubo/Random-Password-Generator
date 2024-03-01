@@ -15,7 +15,7 @@ function updateValue() {
     output.textContent = slider.value;
 }
 
-document.getElementById("slider").addEventListener('oninput', updateValue())
+document.getElementById("slider").addEventListener('input', updateValue())
 
 function updateNumbers() {
     let numbers = document.getElementById("numbers")
