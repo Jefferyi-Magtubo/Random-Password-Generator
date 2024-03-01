@@ -27,6 +27,8 @@ function updateNumbers() {
     }
 }
 
+
+
 function updateSymbols() {
     let symbols = document.getElementById("symbols")
     
@@ -36,6 +38,8 @@ function updateSymbols() {
         characters.push("~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/")
     }
 }
+
+document.getElementById("numbers").addEventListener('input', updateNumbers)
 
 function generatePasswords() {
     let passwordlength = Number(document.getElementById("sliderValue").textContent)
@@ -56,6 +60,8 @@ function generatePasswords() {
     }
     document.getElementById("passwordTwo").textContent = password2
 }
+
+document.getElementById("genPass").addEventListener('click', generatePasswords)
 
 function copy(elementId) {
       let textToCopy = document.getElementById(elementId).innerText;
@@ -79,3 +85,13 @@ function copy(elementId) {
         copyText.innerText = textToCopy;
       }, 2000); 
     }
+
+document.addEventListener('click', (e) => {
+    if(e.target.id === "passwordOne") {
+        copy('passwordOne')
+    }
+
+    if(e.target.id === "passwordTwo") {
+        copy('passwordTwo')
+    }
+})

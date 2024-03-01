@@ -21,19 +21,19 @@
             </div>
             <div id="toggleSettings">
                 <div class="custom-checkbox">
-                    <input type="checkbox" id="symbols" oninput="updateSymbols()">
+                    <input type="checkbox" id="symbols">
                     <label for="symbols">Disable Symbols</label>
                 </div>
                 <div class="custom-checkbox">
-                    <input type="checkbox" id="numbers" oninput="updateNumbers()">
+                    <input type="checkbox" id="numbers">
                     <label for="numbers">Disable Numbers</label>
                 </div>
             </div>
-            <button onclick="generatePasswords()">Generate Passwords</button>
+            <button id="genPass">Generate Passwords</button>
             <hr>
             <div id="generatedPasswords">
-                <h3 id="passwordOne" onclick="copy('passwordOne')"></h3>
-                <h3 id="passwordTwo" onclick="copy('passwordTwo')"></h3>
+                <h3 id="passwordOne"></h3>
+                <h3 id="passwordTwo"></h3>
             </div>
         </div>
         <script src="index.js" type="module"></script>
