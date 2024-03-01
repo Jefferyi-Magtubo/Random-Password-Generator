@@ -124,3 +124,13 @@ input[type="range"]::-ms-fill-lower {
 input[type="range"]::-ms-fill-upper {  
   background-color: #9a905d;
 }
+
+@media (max-width: 468px) {
+    .main {
+        width: 70%;
+    }
+
+    #passwordOne, #passwordTwo {
+        width: 50%;
+    }
+}
