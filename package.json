@@ -1,7 +1,9 @@
 {
   "name": "project",
-  "dependencies": {},
   "devDependencies": {
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "typescript": "^5.4.2",
     "vite": "latest"
   },
   "scripts": {
