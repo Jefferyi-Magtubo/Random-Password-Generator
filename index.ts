@@ -1,4 +1,4 @@
-const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
+let characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 "/"];
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -22,10 +22,10 @@ sliderEl.addEventListener('input', updateValue)
 function updateNumbers() {
     let numbers = document.getElementById("numbers") as HTMLInputElement
     
-    if(numbers.checked) {
-        characters.splice(characters.indexOf("0") , 10)
-    } else if(!numbers.checked && characters.indexOf("1") === -1) {
-        characters.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+    if (numbers.checked) {
+        characters = characters.filter(char => !/[0-9]/.test(char));
+    } else {
+        characters = [...characters, "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     }
 }
 
@@ -34,16 +34,20 @@ function updateNumbers() {
 function updateSymbols() {
     let symbols: HTMLInputElement = document.getElementById("symbols") as HTMLInputElement
     
-    if(symbols.checked) {
-        characters.splice(characters.indexOf("~"), 30)
-    } else if (!symbols.checked && characters.indexOf("~") === -1) {
-        characters.push("~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/")
+    if (symbols.checked) {
+        characters = characters.filter(char => !/[~`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(char));
+    } else {
+        characters = [...characters, "~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
     }
 }
 
 const numberInput = document.getElementById("numbers") as HTMLElement
 
 numberInput.addEventListener('input', updateNumbers)
+
+const symbolsInput = document.getElementById("symbols") as HTMLElement
+
+symbolsInput.addEventListener('input', updateSymbols)
 
 function generatePasswords() {
 

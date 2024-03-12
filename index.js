@@ -1,3 +1,12 @@
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 var characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?",
     "/"];
 document.addEventListener('DOMContentLoaded', function () {
@@ -16,23 +25,25 @@ sliderEl.addEventListener('input', updateValue);
 function updateNumbers() {
     var numbers = document.getElementById("numbers");
     if (numbers.checked) {
-        characters.splice(characters.indexOf("0"), 10);
+        characters = characters.filter(function (char) { return !/[0-9]/.test(char); });
     }
-    else if (!numbers.checked && characters.indexOf("1") === -1) {
-        characters.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+    else {
+        characters = __spreadArray(__spreadArray([], characters, true), ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], false);
     }
 }
 function updateSymbols() {
     var symbols = document.getElementById("symbols");
     if (symbols.checked) {
-        characters.splice(characters.indexOf("~"), 30);
+        characters = characters.filter(function (char) { return !/[~`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(char); });
     }
-    else if (!symbols.checked && characters.indexOf("~") === -1) {
-        characters.push("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/");
+    else {
+        characters = __spreadArray(__spreadArray([], characters, true), ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/"], false);
     }
 }
 var numberInput = document.getElementById("numbers");
 numberInput.addEventListener('input', updateNumbers);
+var symbolsInput = document.getElementById("symbols");
+symbolsInput.addEventListener('input', updateSymbols);
 function generatePasswords() {
     var sliderValue = document.getElementById("sliderValue");
     var passwordlength = Number(sliderValue.textContent);
