@@ -125,12 +125,21 @@ input[type="range"]::-ms-fill-upper {
   background-color: #9a905d;
 }
 
-@media (max-width: 468px) {
+@media (max-width: 693px) {
     .main {
         width: 70%;
     }
 
     #passwordOne, #passwordTwo {
-        width: 50%;
+        width: 100%;
+        
+    }
+
+    #generatedPasswords {
+        display: block;
+    }
+
+    #bar {
+        display: none;
     }
 }
